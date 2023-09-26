@@ -1,38 +1,155 @@
-.App {
-  text-align: center;
+* {
+  transition: 0.2s;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem;
+  background-image: url("./media/car-dealership-bg.jpg");
+  background-position: center;
+  color: rgba(48, 255, 221, 1);
+}
+
+nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 4rem;
+  margin-bottom: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+  color: rgba(48, 255, 221, 1);
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: rgba(48, 255, 221, 1);
+  transition: 0.5s;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.slogan {
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+
+.promotions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  grid-auto-rows: minmax(0, max-content);
+}
+
+article {
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  word-wrap: break-word;
+  overflow: auto;
+}
+
+article:hover,
+li:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: transform 0.2s ease-out;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: rgba(48, 255, 221, 1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  margin: 5px auto;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: 0.5s;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  ul {
+    position: relative;
+    border-radius: 5px;
+    top: -200px;
+    right: 15px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    flex-direction: column;
+    transition: 0.3s;
+    z-index: 1;
+  }
+
+  li {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.5s;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  ul.active {
+    top: 150px;
   }
 }
